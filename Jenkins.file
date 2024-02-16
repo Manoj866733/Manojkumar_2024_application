@@ -1,16 +1,14 @@
-pipeline{
-
+pipeline {
     agent any
 
-    stages{
-
-        stage{"git checkout my code"}{
-
-            steps{
-                scripts{
+    stages {
+        stage('Git Checkout My Code') {
+            steps {
+                script {
                     git branch: 'main', url: 'https://github.com/Manoj866733/Manojkumar_2024_application.git'
                 }
             }
         }
+        // Add more stages as needed
     }
 }
