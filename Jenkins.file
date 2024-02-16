@@ -27,13 +27,7 @@ pipeline {
         stage('Unit test from Maven') {
             steps {
                 script {
-                    // Verify Maven path
-                    sh 'which mvn'
-
-                    // Run Maven command in the root directory
-                    dir('') {
-                        sh '/usr/bin/mvn test'
-                    }
+                    mvntest()
                 }
             }
         }
