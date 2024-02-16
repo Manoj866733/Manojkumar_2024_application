@@ -31,7 +31,7 @@ pipeline {
                     sh 'which mvn'
 
                     // Run Maven command
-                    dir('path/to/maven/project') {
+                    dir('') {
                         sh '/usr/share/maven/bin/mvn test'
                     }
                 }
