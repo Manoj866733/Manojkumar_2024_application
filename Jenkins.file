@@ -8,8 +8,8 @@ pipeline {
             steps {
                 script {
                     gitCheckout(
-                        branch: "main",
-                        url: "https://github.com/Manoj866733/Manojkumar_jenkins_shared_lib.git"
+                        branch: 'main',
+                        url: 'https://github.com/Manoj866733/Manojkumar_jenkins_shared_lib.git'
                     )
                 }
             }
@@ -17,7 +17,7 @@ pipeline {
         stage('Unit test from Maven') {
             steps {
                 script {
-                    mvmTest()
+                    mvn test()
                 }
             }
         }
