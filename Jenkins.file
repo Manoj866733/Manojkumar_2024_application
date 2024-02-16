@@ -14,6 +14,12 @@ pipeline {
                 }
             }
         }
-        // Add more stages as needed
+        stage('Unit test from Maven') {
+            steps {
+                script {
+                    mvmTest()
+                }
+            }
+        }
     }
 }
