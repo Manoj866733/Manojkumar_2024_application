@@ -4,20 +4,29 @@ pipeline {
     agent any
 
     stages {
+        stage('Print Current Directory') {
+            steps {
+                script {
+                    echo "Current Directory: ${pwd()}"
+                }
+            }
+        }
+
         stage('Git Checkout My Code') {
             steps {
                 script {
                     gitCheckout(
                         branch: 'main',
-                        url: 'https://github.com/Manoj866733/Manojkumar_jenkins_shared_lib.git'
+                        url: 'https://github.com/Manoj866733/Manojkumar_jenkins_shared_lib.git',
+                        subDirectory: 'path/to/maven/project'
                     )
                 }
             }
         }
+
         stage('Unit test from Maven') {
             steps {
                 script {
-
                     mvnTest()
                 }
             }
