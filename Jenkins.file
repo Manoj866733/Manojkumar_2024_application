@@ -15,10 +15,10 @@ pipeline {
         stage('Git Checkout My Code') {
             steps {
                 script {
+                    // Omit subDirectory or set it to an empty string if your Maven project is in the root
                     gitCheckout(
                         branch: 'main',
-                        url: 'https://github.com/Manoj866733/Manojkumar_jenkins_shared_lib.git',
-                        subDirectory: 'path/to/maven/project'
+                        url: 'https://github.com/Manoj866733/Manojkumar_jenkins_shared_lib.git'
                     )
                 }
             }
@@ -26,9 +26,8 @@ pipeline {
 
         stage('Unit test from Maven') {
             steps {
-                script {
-                    mvnTest()
-                }
+                // Use mvnTest without specifying the directory
+                mvnTest()
             }
         }
     }
