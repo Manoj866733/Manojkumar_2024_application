@@ -1,3 +1,5 @@
+@Library('Manojkumar_jenkins_shared_lib')
+
 pipeline {
     agent any
 
@@ -5,7 +7,11 @@ pipeline {
         stage('Git Checkout My Code') {
             steps {
                 script {
-                    git branch: 'main', url: 'https://github.com/Manoj866733/Manojkumar_2024_application.git'
+                    
+                    gitCheckout{
+                      branch: "main"
+                      url: "https://github.com/Manoj866733/Manojkumar_jenkins_shared_lib.git"
+                    }
                 }
             }
         }
