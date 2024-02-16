@@ -30,9 +30,14 @@ pipeline {
                     // Verify Maven path
                     sh 'which mvn'
 
-                    // Run Maven command
+                    // Run Maven command in the root directory
                     dir('') {
-                        sh '/usr/share/maven/bin/mvn test'
+                        sh '/usr/bin/mvn test'
+                    }
+
+                    // Run Maven command in a subdirectory 'my-maven-project'
+                    dir('my-maven-project') {
+                        sh '/usr/bin/mvn test'
                     }
                 }
             }
