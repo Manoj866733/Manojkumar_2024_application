@@ -26,8 +26,15 @@ pipeline {
 
         stage('Unit test from Maven') {
             steps {
-                // Use mvnTest without specifying the directory
-                mvnTest()
+                script {
+                    // Verify Maven path
+                    sh 'which mvn'
+
+                    // Run Maven command
+                    dir('path/to/maven/project') {
+                        sh '/usr/share/maven/bin/mvn test'
+                    }
+                }
             }
         }
     }
