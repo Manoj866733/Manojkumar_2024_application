@@ -34,11 +34,6 @@ pipeline {
                     dir('') {
                         sh '/usr/bin/mvn test'
                     }
-
-                    // Run Maven command in a subdirectory 'my-maven-project'
-                    dir('my-maven-project') {
-                        sh '/usr/bin/mvn test'
-                    }
                 }
             }
         }
