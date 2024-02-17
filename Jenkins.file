@@ -1,5 +1,3 @@
-@Library('Manojkumar_jenkins_shared_lib') _
-
 pipeline {
     agent any
 
@@ -12,22 +10,15 @@ pipeline {
             }
         }
 
-        stage('Git Checkout My Code') {
+        stage('Git Clone & Maven Test') {
             steps {
                 script {
-                    // Omit subDirectory or set it to an empty string if your Maven project is in the root
-                    gitCheckout(
-                        branch: 'main',
-                        url: 'https://github.com/Manoj866733/Manojkumar_jenkins_shared_lib.git'
-                    )
-                }
-            }
-        }
+                    // Clone the Git repository
+                    git url: 'https://github.com/Manoj866733/Manojkumar_2024_application.git', branch: 'main'
 
-        stage('Unit test from Maven') {
-            steps {
-                script {
-                    mvnTest()
+                    // Run Maven test
+                    
+                    sh 'mvn test'
                 }
             }
         }
