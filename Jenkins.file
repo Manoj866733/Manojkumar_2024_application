@@ -10,16 +10,17 @@ pipeline {
             }
         }
 
-        stage('Git Clone & Maven Test and Intergration') {
+        stage('Git Clone & Maven Test and Integration') {
             steps {
                 script {
                     // Clone the Git repository
                     git url: 'https://github.com/Manoj866733/Manojkumar_2024_application.git', branch: 'main'
 
                     // Run Maven test
-                    
                     sh 'mvn test'
-                    sh 'mvn verify -DskipUnitTests'
+
+                    // Run Maven integration (assuming you have an integration test goal)
+                    sh 'mvn integration-test'
                 }
             }
         }
