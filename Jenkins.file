@@ -10,7 +10,7 @@ pipeline {
             }
         }
 
-        stage('Git Clone & Maven Test') {
+        stage('Git Clone & Maven Test and Intergration') {
             steps {
                 script {
                     // Clone the Git repository
@@ -19,6 +19,7 @@ pipeline {
                     // Run Maven test
                     
                     sh 'mvn test'
+                    sh 'mvn verify -DskipUnitTests'
                 }
             }
         }
